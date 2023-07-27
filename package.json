@@ -3,17 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@medusajs/medusa-js": "^6.0.1",
+    "@radix-ui/colors": "^1.0.1",
+    "@radix-ui/react-popover": "^1.0.6",
+    "@radix-ui/react-radio-group": "^1.1.3",
+    "@radix-ui/react-toolbar": "^1.0.4",
+    "@reduxjs/toolkit": "^1.9.5",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "lucide-react": "^0.263.1",
     "next": "13.4.6",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.0-next.1",
+    "react-redux": "^8.1.1",
+    "swiper": "^9.4.1",
     "tailwindcss": "3.3.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0"
   }
 }
