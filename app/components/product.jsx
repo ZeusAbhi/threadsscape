@@ -1,81 +1,12 @@
 "use-client";
 import React, { useState, useEffect } from "react";
-import { medusaClient } from "../utils/client";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 const Product = ({ title, thumb, desc, weight, price, variants }) => {
   const [FormattedPrice, setFormattedPrice] = useState(0);
   const [focus, setFocus] = useState("");
-  // const [cart, setCart] = useState({});
   const [variantID, setVariantID] = useState("");
-  const {cart}=useSelector((state)=>state.cart)
-  const dispatch=useDispatch()
-
-  // const addProduct = async (cartId, variantID) => {
-  //   //Adding Products
-  //   if (cart.items != null) {
-  //     if (cart.items.length > 0) {
-  //       var check = false;
-  //       if (check == false) {
-  //         cart.items.map(async (e) => {
-  //           if (e.variant_id == variantID) {
-  //             check = true;
-  //             const lineItemID = e.id;
-  //             const { cart } = await medusaClient.carts.lineItems.update(
-  //               cartId,
-  //               lineItemID,
-  //               {
-  //                 quantity: e.quantity + 1,
-  //               }
-  //             );
-  //             localStorage.setItem("cartCount", cart.items.length);
-  //             setCart(cart);
-  //           }
-  //         });
-  //       }
-  //       if (check == false) {
-  //         const { cart } = await medusaClient.carts.lineItems.create(cartId, {
-  //           variant_id: variantID,
-  //           quantity: 1,
-  //         });
-  //         localStorage.setItem("cartCount", cart.items.length);
-  //         setCart(cart);
-  //       }
-  //     }
-  //   } else {
-  //     const { cart } = await medusaClient.carts.lineItems.create(cartId, {
-  //       variant_id: variantID,
-  //       quantity: 1,
-  //     });
-  //     localStorage.setItem("cartCount", cart.items.length);
-  //     setCart(cart);
-  //   }
-  // };
-
-  // const handleAddToCart = async () => {
-  //   const user = JSON.parse(localStorage.getItem("User"));
-  //   if (user !== null) {
-  //     if (variantID !== "") {
-  //       const userID = user.id;
-  //       const cartobject = JSON.parse(localStorage.getItem(userID));
-
-  //       const cartID = cartobject !== null ? cartobject.cartID : null;
-  //       if (cartID !== null) {
-  //         addProduct(cartID, variantID);
-  //       } else {
-  //         //Create a cart if there isn't a pre-existing one
-  //         const { cart } = await medusaClient.carts.create();
-  //         setCart(cart);
-  //         localStorage.setItem(
-  //           userID,
-  //           JSON.stringify({ user_id: userID, cartID: cart.id })
-  //         );
-
-  //         addProduct(cart.id, variantID);
-  //       }
-  //     }
-  //   }
-  // };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const convertToINR = async (price) => {
@@ -170,7 +101,7 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
         <h6 className="my-5 font-bold">{FormattedPrice}</h6>
         <button
           className=" w-23 h-10 border-2 border-black bg-black text-sm text-white transition-all hover:bg-white hover:text-black"
-          onClick={()=>dispatch(addToCart(variantID))}
+          onClick={() => dispatch(addToCart(variantID))}
         >
           Add to Cart
         </button>

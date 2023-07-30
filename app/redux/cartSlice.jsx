@@ -14,6 +14,11 @@ export const cartSlice = createSlice({
       state.cart=updatedCart
       
     },
+    deleteCart:(state,action)=>{
+      const obj=action.payload
+      const updatedCart=handleDeleteItem(obj.cartID,obj.lineItemID)
+      state.cart=updatedCart
+    }
   },
 })
 const handleAddToCart = async (variantID) => {
@@ -78,8 +83,14 @@ const handleAddToCart = async (variantID) => {
     }
   }
 };
-
+const handleDeleteItem= async (cartID,lineItemID)=>{
+  console.log(lineItemID);
+  const {cart}=await medusaClient.carts.lineItems
+  .delete(cartID, lineItemID)
+  localStorage.setItem("cartCount", cart.items.length);
+ return cart
+}
 // Action creators are generated for each case reducer function
-export const { addToCart } = cartSlice.actions
+export const { addToCart,deleteCart } = cartSlice.actions
 
 export default cartSlice.reducer

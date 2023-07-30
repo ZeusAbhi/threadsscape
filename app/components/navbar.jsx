@@ -82,6 +82,7 @@ const Navbar = () => {
                   >
                     <Cart />
                   </Popover.Content>
+                  
                 </Popover.Portal>
               </Popover.Root>
               <Link href="/Account">
