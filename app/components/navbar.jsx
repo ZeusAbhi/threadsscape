@@ -76,13 +76,26 @@ const Navbar = () => {
                   </p>
                 </Popover.Trigger>
                 <Popover.Portal>
-                  <Popover.Content
-                    className=" z-10 my-4 h-[500px]  w-[400px] overflow-y-auto rounded bg-white p-5 shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] will-change-[transform,opacity] focus:shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2),0_0_0_2px_theme(colors.white)] focus:outline-none data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade"
-                    sideOffset={5}
-                  >
-                    <Cart />
-                  </Popover.Content>
-                  
+                  {count > 0 ? (
+                    <Popover.Content
+                      className=" z-10 my-4 h-[500px]  w-[400px] overflow-y-auto rounded bg-white p-5 shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] will-change-[transform,opacity] focus:shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2),0_0_0_2px_theme(colors.white)] focus:outline-none data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade"
+                      sideOffset={5}
+                    >
+                      <Cart />
+                    </Popover.Content>
+                  ) : (
+                    <Popover.Content
+                      className=" z-10 my-4 flex h-[100px] w-[400px] items-center  justify-center overflow-y-auto rounded bg-white p-5 shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2)] will-change-[transform,opacity] focus:shadow-[0_10px_38px_-10px_hsla(206,22%,7%,.35),0_10px_20px_-15px_hsla(206,22%,7%,.2),0_0_0_2px_theme(colors.white)] focus:outline-none data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=top]:animate-slideDownAndFade"
+                      sideOffset={5}
+                    >
+                      <a
+                        href="/shop"
+                        className="  flex h-10 w-36 items-center   justify-center border-[1.5px] border-black bg-black text-sm text-white outline-none transition-all hover:bg-white hover:text-black"
+                      >
+                        Explore Products
+                      </a>
+                    </Popover.Content>
+                  )}
                 </Popover.Portal>
               </Popover.Root>
               <Link href="/Account">
