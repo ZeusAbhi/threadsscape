@@ -8,6 +8,8 @@ import { deleteCart } from "../redux/cartSlice";
 const Cart = () => {
   const [cart, setCart] = useState({});
   const { Cart } = useSelector((state) => state.cart);
+  const [exchangeRate, setExchangeRate] = useState(0);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const getCart = async () => {
@@ -20,13 +22,26 @@ const Cart = () => {
           await medusaClient.carts
             .retrieve(cartID)
             .then(({ cart }) => setCart(cart));
-
-          cart.items && localStorage.setItem("cartCount", cart.items.length);
         }
       }
     };
     getCart();
   }, [Cart, []]);
+
+  useEffect(() => {
+    const convertToINR = async (price) => {
+      try {
+        const response = await fetch(
+          "https://api.exchangerate-api.com/v4/latest/USD"
+        );
+        const data = await response.json();
+        setExchangeRate(data.rates.INR);
+      } catch (error) {
+        console.error("Error fetching exchange rate:", error);
+      }
+    };
+    convertToINR();
+  }, [cart]);
 
   return (
     <>
@@ -35,7 +50,7 @@ const Cart = () => {
           cart.items.map((e) => {
             return (
               <>
-                <div className="flex gap-3" key={e.variant_id}>
+                <div className="flex gap-5" key={e.variant_id}>
                   <div
                     className="h-[8rem] w-[8rem] bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url(${e.thumbnail})` }}
@@ -58,6 +73,14 @@ const Cart = () => {
                       <Trash2 color="red" size={15} />
                     </button>
                   </div>
+                  <h3 className="text-[0.8rem]">
+                    ₹
+                    {(
+                      parseFloat(e.unit_price / 100) *
+                      exchangeRate *
+                      e.quantity
+                    ).toFixed(2)}
+                  </h3>
                 </div>
               </>
             );

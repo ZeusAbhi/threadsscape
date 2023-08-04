@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { medusaClient } from '../utils/client'
 const initialState = {
-  cart: {},
+  cart: {}
+ 
 }
 
 export const cartSlice = createSlice({
@@ -91,6 +92,6 @@ const handleDeleteItem= async (cartID,lineItemID)=>{
  return cart
 }
 // Action creators are generated for each case reducer function
-export const { addToCart,deleteCart } = cartSlice.actions
+export const { addToCart,deleteCart} = cartSlice.actions
 
 export default cartSlice.reducer

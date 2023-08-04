@@ -1,7 +1,7 @@
 import React from 'react'
  // Import Swiper React components
  import { Swiper, SwiperSlide } from "swiper/react";
-
+ import "./swiper.css"
  // Import Swiper styles
  import "swiper/css";
  import 'swiper/css/pagination';
@@ -17,10 +17,10 @@ const Sliderhome = () => {
       <div className='w-[32vw] h-[50vh]'>
     <Swiper  pagination={true} modules={[Navigation,Pagination,Autoplay]}     slidesPerView={1} autoplay={{delay:3000,pauseOnMouseEnter :true,disableOnInteraction: false}} speed={800} loop={true} className="mySwiper" >
         <SwiperSlide>
-        <div className=' w-[32vw] h-[50vh] border-2 border-white bg-cover bg-no-repeat  bg-center' style={{ "backgroundImage": "url('sup.jpg')" }} ></div>
+        <div className=' w-[32vw] h-[50vh] border-2 border-white bg-cover bg-no-repeat  bg-center' style={{ "backgroundImage": "url('loui3.jpg')" }} ></div>
         </SwiperSlide>
         <SwiperSlide>
-        <div className=' w-[32vw] h-[50vh] border-2 border-white bg-cover bg-center' style={{ "backgroundImage": "url('pepe.avif')" }} ></div>
+        <div className=' w-[32vw] h-[50vh] border-2 border-white   bg-contain bg-center bg-no-repeat' style={{ "backgroundImage": "url('gucci.png')" }} ></div>
         </SwiperSlide>
         <SwiperSlide>
         <div className=' w-[32vw] h-[50vh] border-2 border-white bg-contain bg-no-repeat bg-center' style={{ "backgroundImage": "url('van.png')" }} ></div> 
