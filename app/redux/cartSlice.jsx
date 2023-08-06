@@ -67,7 +67,7 @@ const handleAddToCart = async (variantID) => {
         }
       } else {
         //Create a cart if there isn't a pre-existing one
-        console.log("123")
+       
         const { cart } = await medusaClient.carts.create();
         localStorage.setItem(
           userID,
@@ -85,7 +85,7 @@ const handleAddToCart = async (variantID) => {
   }
 };
 const handleDeleteItem= async (cartID,lineItemID)=>{
-  console.log(lineItemID);
+ 
   const {cart}=await medusaClient.carts.lineItems
   .delete(cartID, lineItemID)
   localStorage.setItem("cartCount", cart.items.length);

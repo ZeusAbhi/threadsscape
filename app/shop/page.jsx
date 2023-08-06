@@ -19,7 +19,7 @@ const Shop = () => {
   }, []);
   return (
     <>
-      <div className="flex h-[100vh] bg-gray-100 ">
+      <div className="flex h-[100vh]  bg-slate-100 ">
         <div className="mx-5 my-5 flex flex-wrap gap-5 ">
           {products.map((e) => {
             return (

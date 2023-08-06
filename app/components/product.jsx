@@ -1,7 +1,7 @@
 "use-client";
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
-import { addToCart} from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartslice";
 const Product = ({ title, thumb, desc, weight, price, variants }) => {
   const [FormattedPrice, setFormattedPrice] = useState(0);
   const [focus, setFocus] = useState("");
@@ -28,8 +28,6 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
     };
     convertToINR(price);
   }, [price]);
-
-  
 
   return (
     <div className="flex justify-center gap-10  ">
