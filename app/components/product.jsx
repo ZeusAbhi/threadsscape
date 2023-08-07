@@ -1,7 +1,7 @@
 "use-client";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/cartslice";
+import { addToCart } from "../redux/cartSlice";
 const Product = ({ title, thumb, desc, weight, price, variants }) => {
   const [FormattedPrice, setFormattedPrice] = useState(0);
   const [focus, setFocus] = useState("");

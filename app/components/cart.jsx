@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { medusaClient } from "../utils/client";
 import { Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart } from "../redux/cartslice";
+import { deleteCart } from "../redux/cartSlice";
 
 const Cart = () => {
   const [cart, setCart] = useState({});
