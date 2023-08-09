@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+    padding-bottom: 60vh;
+    background-image: url('/pink.jpg')
+     
+  }
+  .container .text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .text > p {
+      background: linear-gradient( to right,  white 50%, black 50% );
+      background-size: 200% 100%;
+      background-position-x: 100%;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      padding-left: 3vw;
+      font-size: 8rem;
+      margin-bottom: -80px;
+      font-weight: bolder;
+      transition: .2s background linear;
+  }

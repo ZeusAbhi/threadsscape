@@ -6,6 +6,7 @@ import Cart from "./cart";
 import { useSelector } from "react-redux";
 import { SearchCheck, ShoppingCart } from "lucide-react";
 import { medusaClient } from "../utils/client";
+import * as Separator from "@radix-ui/react-separator";
 import "./nav.css";
 import Search from "./search";
 
@@ -96,8 +97,9 @@ const Navbar = () => {
     }
   }, []);
   return (
-    <div className="flex h-[10vh] w-[100vw] justify-center bg-black">
-      <div className="flex items-center justify-center gap-12 text-lg text-white">
+    <>
+    <div className="flex h-[10vh] w-[100vw] justify-center bg-white">
+      <div className="flex items-center justify-center gap-12 text-lg text-black">
         <div className="absolute  left-0 flex items-center  gap-10">
           <h1 className="  flex items-center justify-center text-2xl font-bold">
             <img src="./thread.png" className="   h-16 w-20" alt="" />
@@ -115,7 +117,7 @@ const Navbar = () => {
           <Popover.Root>
             <div className="relative flex items-center justify-center">
               <input
-                className="h-7 w-[30vw] rounded-md   text-center text-sm text-black outline-none"
+                className="h-7 w-[30vw] rounded-md shadow-md  text-center text-sm text-black outline-none"
                 type="text"
                 name=""
                 id=""
@@ -151,7 +153,7 @@ const Navbar = () => {
               <Popover.Root>
                 <Popover.Trigger asChild>
                   <p className=" flex cursor-pointer items-center text-sm text-white">
-                    <ShoppingCart />{" "}
+                    <ShoppingCart color="black" />{" "}
                     <span className="px-1 text-[0.65rem]">({count})</span>
                   </p>
                 </Popover.Trigger>
@@ -196,15 +198,21 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <button className="  h-8 w-20 rounded-md bg-white transition-all hover:bg-slate-200">
+            <button className="  h-8 w-20 rounded-md bg-blue-500 transition-all hover:bg-slate-200">
               <Link href="/signup">
-                <p className="text-sm font-bold text-slate-950">Signup</p>
+                <p className="text-sm  text-white">Signup</p>
               </Link>
             </button>
           )}
         </div>
       </div>
     </div>
+      <Separator.Root
+                className="   bg-slate-100 h-1 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-[100vw] data-[orientation=vertical]:w-5px"
+                decorative
+                orientation="horizontal"
+              />
+    </>
   );
 };
 
