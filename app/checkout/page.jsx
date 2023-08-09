@@ -5,6 +5,7 @@ import "./checkout.css";
 import { useSelector } from "react-redux";
 import { medusaClient } from "../utils/client";
 import * as Separator from "@radix-ui/react-separator";
+import axios from "axios";
 
 const Checkout = () => {
   const { Cart } = useSelector((state) => state.cart);
@@ -26,6 +27,7 @@ const Checkout = () => {
     };
     getCart();
   }, [Cart, []]);
+
   useEffect(() => {
     const convertToINR = async () => {
       try {
@@ -40,6 +42,7 @@ const Checkout = () => {
     };
     convertToINR();
   }, [cart]);
+
   const {
     register,
     handleSubmit,
@@ -47,6 +50,37 @@ const Checkout = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+  };
+
+  const handlePayment = () => {
+    const item =
+      cart?.items?.map((e) => ({
+        id: e.variant_id,
+        quantity: e.quantity,
+      })) || [];
+      const user = JSON.parse(localStorage.getItem("User"));
+        const userID = user.id;
+        const cartobject = JSON.parse(localStorage.getItem(userID));
+        const cartID = cartobject !== null ? cartobject.cartID : null;
+      
+    axios
+      .post("http://localhost:5000/create-checkout-session", {
+        cart,
+        exchangeRate
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          return res.data;
+        } else {
+          return Promise.reject(res.data);
+        }
+      })
+      .then(({ url }) => {
+        window.location = url;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <>
@@ -199,22 +233,22 @@ const Checkout = () => {
                 orientation="horizontal"
               />
               <h3>Total</h3>
-              <a
-                href="/checkout"
+              <button
+                onClick={handlePayment}
                 className="  flex h-10 w-[25vw] items-center   justify-center border-[1.5px] border-black bg-black text-sm text-white outline-none transition-all hover:bg-white hover:text-black"
               >
                 Checkout
-              </a>
+              </button>
             </div>
             <div className="flex w-[10vw] flex-col gap-5">
               <h1>
                 ₹{(parseFloat(cart.subtotal / 100) * exchangeRate).toFixed(2)}
               </h1>
-              <h4>₹10.00</h4>
+              <h4>₹0.00</h4>
               <h4>₹0.00</h4>
               <h1 style={{ paddingTop: "19px" }}>
                 ₹
-                {(parseFloat(cart.subtotal / 100) * exchangeRate + 10).toFixed(
+                {(parseFloat(cart.subtotal / 100) * exchangeRate ).toFixed(
                   2
                 )}
               </h1>
