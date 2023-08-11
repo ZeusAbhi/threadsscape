@@ -101,7 +101,13 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
         <h6 className="my-5 font-bold">{FormattedPrice}</h6>
         <button
           className=" w-23 h-10 border-2 border-black bg-black text-sm text-white transition-all hover:bg-white hover:text-black"
-          onClick={() => dispatch(addToCart(variantID))}
+          onClick={() =>{
+
+             if(localStorage.getItem("User")==null)
+                window.location.href='/login'
+              else
+                dispatch(addToCart(variantID))
+          } }
         >
           Add to Cart
         </button>

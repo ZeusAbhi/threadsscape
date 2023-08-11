@@ -32,19 +32,24 @@ const Signup = () => {
   };
   return (
     <>
-      <form
+     
+        <div className="flex w-[100vw] fixed gap-3 overflow-y-hidden justify-center items-center">
+        <div
+            className=" w-[70vw] h-[90vh]  bg-cover  bg-center"
+            style={{ backgroundImage: "url('signup3.jpg')" }}
+          ></div>
+        <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex h-[80vh] items-center justify-center"
+        className="flex h-[80vh]"
       >
-        <div className="flex h-[70vh] w-[70vw] gap-3  rounded-[1rem] border-2 bg-black px-3 pr-0">
-          <div className="flex h-[40vh] w-[30vw] flex-col  gap-5 ">
-            <h1 className="my-4 break-normal text-4xl font-bold text-white">
+          <div className="flex  w-[30vw] overflow-y-auto  flex-col  mx-5   gap-6 ">
+            <h1 className="my-4 break-normal text-4xl font-bold text-black">
               Sign Up <br></br>to Threadscape
             </h1>
-            <h4 className="text-white -my-2 ">Already a member? <Link className="text-blue-500 " href='/login'>Login</Link></h4>
-            <label className="text-white">Name</label>
+            <h4 className="text-black -my-2 ">Already a member? <Link className="text-blue-500 " href='/login'>Login</Link></h4>
+            <label className="text-black">Name</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-white  text-center outline-none hover:bg-slate-100 "
+              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100  text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="text"
               {...register("name", {
                 required: true,
@@ -58,9 +63,9 @@ const Signup = () => {
               </p>
             )}
 
-            <label className="text-white">Email</label>
+            <label className="text-black">Email</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-white text-center outline-none hover:bg-slate-100"
+              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100 text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="email"
               {...register("email", {
                 required: true,
@@ -68,9 +73,9 @@ const Signup = () => {
                   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
               })}
             />
-            <label className="text-white">Password</label>
+            <label className="text-black">Password</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-white  text-center outline-none hover:bg-slate-100"
+              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100  text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="password"
               {...register("password", {
                 required: true,
@@ -96,12 +101,9 @@ const Signup = () => {
               <p className="text-red-500">{error}</p>
             )}
           </div>
-          <div
-            className=" w-[40vw] rounded-full bg-cover  bg-center"
-            style={{ backgroundImage: "url('flash.avif')" }}
-          ></div>
+          </form>
         </div>
-      </form>
+      
     </>
   );
 };

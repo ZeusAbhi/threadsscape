@@ -12,7 +12,7 @@ import Search from "./search";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [count, setCount] = useState(localStorage.getItem("cartCount") || 0);
+  const [count, setCount] = useState((typeof Storage == 'undefined')?"": localStorage.getItem("cartCount") || 0);
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
@@ -152,7 +152,7 @@ const Navbar = () => {
             <div className="flex items-center gap-4">
               <Popover.Root>
                 <Popover.Trigger asChild>
-                  <p className=" flex cursor-pointer items-center text-sm text-white">
+                  <p className=" flex cursor-pointer items-center text-sm text-black">
                     <ShoppingCart color="black" />{" "}
                     <span className="px-1 text-[0.65rem]">({count})</span>
                   </p>
@@ -187,7 +187,7 @@ const Navbar = () => {
                 </Popover.Portal>
               </Popover.Root>
               <Link href="/Account">
-                <p className=" text-sm text-white">Account</p>
+                <p className=" text-sm text-black">Account</p>
               </Link>
 
               <button
@@ -198,7 +198,7 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <button className="  h-8 w-20 rounded-md bg-blue-500 transition-all hover:bg-slate-200">
+            <button className="  h-8 w-20 rounded-md bg-blue-500 transition-all hover:bg-blue-600">
               <Link href="/signup">
                 <p className="text-sm  text-white">Signup</p>
               </Link>

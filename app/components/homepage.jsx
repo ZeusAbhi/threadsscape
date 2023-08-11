@@ -19,15 +19,14 @@ const Homepage = () => {
     });
 
     gsap.to(".text p", {
-      backgroundPositionX: "1%",
+      backgroundPositionX: "0%",
       stagger: 1,
       scrollTrigger: {
-        trigger: ".text p ",
-        scrub: 1,
-        start: "top 200px",
-        end: "bottom 50px",
-        pin: ".text  ",
-        pinSpacing: false
+        trigger: ".pinme",
+        scrub: true,
+        start: "top 0px",
+        pin: ".pinme",
+        pinSpacing: true
       },
     });
   }, []);
@@ -91,7 +90,7 @@ const Homepage = () => {
       </div>
       
       <div className="flex flex-col  justify-center items-center">
-      <div className="container">
+      <div className="container pinme">
         <div className="text flex flex-col gap-6">
           <p id="target" style={{ opacity: 1 }}>Blazing</p>
           <p id="target" style={{ opacity: 1 }}>Fast</p>
@@ -111,8 +110,8 @@ const Homepage = () => {
         }`}
         style={{ maxWidth: '100%', transitionProperty: 'transform' }}
       >
-        <img src="./hero.webp" className="  w-[99vw] relative bg-center bg-cover" alt="" />
-        <div className=" flex flex-col  mx-2  absolute top-[50%] text-white">
+        <img src="./shpg2.png" className="  w-[99vw] relative bg-center bg-cover" alt="" />
+        <div className=" flex flex-col  mx-2  absolute top-[30%]  text-blue-500">
       <span className="text-9xl">Shop</span>
       <span className="text-8xl">Latest</span>
       <span className="text-8xl">Styles</span>

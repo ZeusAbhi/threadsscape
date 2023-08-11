@@ -4,8 +4,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Link from "next/link";
 
-
-
 const Login = () => {
   const [error, setError] = useState("");
   const {
@@ -19,9 +17,12 @@ const Login = () => {
         email: data.email,
         password: data.password,
       })
-      .then((res) =>{
-        localStorage.setItem("User", JSON.stringify({"id": res.data.user._id, "token": res.data.token}));
-        window.location.href = '/home'
+      .then((res) => {
+        localStorage.setItem(
+          "User",
+          JSON.stringify({ id: res.data.user._id, token: res.data.token })
+        );
+        window.location.href = "/home";
       })
       .catch((e) => {
         console.log(e);
@@ -30,25 +31,26 @@ const Login = () => {
   };
   return (
     <>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex h-[80vh] items-center justify-center"
-      >
-        <div className="flex h-[70vh] w-[70vw] gap-3  rounded-[1rem] border-2 bg-black px-3 pr-0">
-          <div className="flex h-[40vh] w-[30vw] flex-col  gap-8 ">
-            <h1 className="my-4 break-normal text-4xl font-bold text-white">
+      <div className="fixed  flex  w-[100vw] items-center justify-center gap-3 overflow-y-hidden">
+        <div
+          className=" h-[100vh] w-[70vw]  bg-cover  bg-center"
+          style={{ backgroundImage: "url('login3.png')" }}
+        ></div>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex h-[80vh] ">
+          <div className="mx-5   flex w-[30vw] flex-col  gap-6   overflow-y-auto ">
+            <h1 className="my-4 break-normal text-4xl font-bold text-black">
               Login <br></br>to Threadscape
             </h1>
-            <h4 className="-my-2 text-white ">
+            <h4 className="-my-2 text-black ">
               Not a member?{" "}
               <Link className="text-blue-500 " href="/signup">
                 Signup
               </Link>
             </h4>
 
-            <label className="text-white">Email</label>
+            <label className="text-black">Email</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-white text-center outline-none hover:bg-slate-100"
+              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100 text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="email"
               {...register("email", {
                 required: true,
@@ -56,9 +58,9 @@ const Login = () => {
                   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
               })}
             />
-            <label className="text-white">Password</label>
+            <label className="text-black">Password</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-white  text-center outline-none hover:bg-slate-100"
+              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100  text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="password"
               {...register("password", {
                 required: true,
@@ -76,17 +78,13 @@ const Login = () => {
               className="h-10 w-20  cursor-pointer rounded-md  bg-blue-600 text-white transition-all hover:bg-blue-700"
               type="submit"
               value="Login"
-              {...register('submit')}
+              {...register("submit")}
             />
 
             {error.length > 0 && <p className="-my-2 text-red-500">{error}</p>}
           </div>
-          <div
-            className=" w-[40vw] rounded-full bg-cover  bg-center"
-            style={{ backgroundImage: "url('flash.avif')" }}
-          ></div>
-        </div>
-      </form>
+        </form>
+      </div>
     </>
   );
 };

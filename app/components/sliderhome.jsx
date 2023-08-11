@@ -1,34 +1,56 @@
-import React from 'react'
- // Import Swiper React components
- import { Swiper, SwiperSlide } from "swiper/react";
- import "./swiper.css"
- // Import Swiper styles
- import "swiper/css";
- import 'swiper/css/pagination';
- import "swiper/css/navigation";
- import "swiper/css/autoplay";
+import React from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./swiper.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
 
- 
- // import required modules
- import { Navigation, Pagination,Autoplay } from "swiper";
+// import required modules
+import { Navigation, Pagination, Autoplay } from "swiper";
 
 const Sliderhome = () => {
   return (
-      <div className='w-[32vw] h-[50vh]'>
-    <Swiper  pagination={true} modules={[Navigation,Pagination,Autoplay]}     slidesPerView={1} autoplay={{delay:3000,pauseOnMouseEnter :true,disableOnInteraction: false}} speed={800} loop={true} className="mySwiper" >
+    <div className="h-[50vh] w-[32vw]">
+      <Swiper
+        pagination={true}
+        modules={[Navigation, Pagination, Autoplay]}
+        slidesPerView={1}
+        autoplay={{
+          delay: 3000,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        }}
+        speed={800}
+        loop={true}
+        className="mySwiper"
+      >
         <SwiperSlide>
-        <div className=' w-[32vw] h-[50vh] border-2 border-white bg-cover bg-no-repeat  bg-center' style={{ "backgroundImage": "url('loui3.jpg')" }} ></div>
+          <a
+            href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
+            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('medusa_1.png')" }}
+          ></a>
         </SwiperSlide>
         <SwiperSlide>
-        <div className=' w-[32vw] h-[50vh] border-2 border-white   bg-contain bg-center bg-no-repeat' style={{ "backgroundImage": "url('gucci.png')" }} ></div>
+          <a
+            href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
+            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('medusa_2.png')" }}
+          ></a>
         </SwiperSlide>
         <SwiperSlide>
-        <div className=' w-[32vw] h-[50vh] border-2 border-white bg-contain bg-no-repeat bg-center' style={{ "backgroundImage": "url('van.png')" }} ></div> 
+          <a
+            href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
+            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('medusa_3.png')" }}
+          ></a>
         </SwiperSlide>
-        </Swiper>
-        </div>
-    
-  )
-}
+      </Swiper>
+    </div>
+  );
+};
 
-export default Sliderhome
+export default Sliderhome;

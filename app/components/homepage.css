@@ -3,10 +3,12 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: max-content;
+    height: 100vh;
     width: 100%;
-    padding-bottom: 60vh;
-    background-image: url('/pink.jpg')
+    /* padding-bottom: 60vh; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/shopgirl.png')
      
   }
   .container .text {
@@ -16,7 +18,7 @@
     align-items: center;
   }
   .text > p {
-      background: linear-gradient( to right,  white 50%, black 50% );
+      background: linear-gradient( to right,  rgb(253 230 138) 50%, black 50% );
       background-size: 200% 100%;
       background-position-x: 100%;
       color: transparent;
@@ -26,5 +28,5 @@
       font-size: 8rem;
       margin-bottom: -80px;
       font-weight: bolder;
-      transition: .2s background linear;
+      transition: .05 background linear;
   }
