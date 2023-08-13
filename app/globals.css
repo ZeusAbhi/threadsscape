@@ -10,3 +10,7 @@ body{
     overflow-x: hidden;
 }
 
+.min-h-actual-screen{
+    min-height: 100vh;
+    min-height: 100svh;
+}

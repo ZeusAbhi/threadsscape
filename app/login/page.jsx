@@ -13,7 +13,7 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:5000/users/signin", {
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/signin`, {
         email: data.email,
         password: data.password,
       })
@@ -37,7 +37,7 @@ const Login = () => {
           style={{ backgroundImage: "url('login3.png')" }}
         ></div>
         <form onSubmit={handleSubmit(onSubmit)} className="flex h-[80vh] ">
-          <div className="mx-5   flex w-[30vw] flex-col  gap-6   overflow-y-auto ">
+          <div className="mx-5 xl:w-max  flex w-[30vw] flex-col  gap-6   overflow-y-auto ">
             <h1 className="my-4 break-normal text-4xl font-bold text-black">
               Login <br></br>to Threadscape
             </h1>
@@ -50,7 +50,7 @@ const Login = () => {
 
             <label className="text-black">Email</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100 text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
+              className=" transition:bg xl:w-max h-[5vh] w-[20vw] rounded-lg bg-slate-100 text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="email"
               {...register("email", {
                 required: true,
@@ -60,7 +60,7 @@ const Login = () => {
             />
             <label className="text-black">Password</label>
             <input
-              className=" transition:bg h-[5vh] w-[20vw] rounded-lg bg-slate-100  text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
+              className=" transition:bg xl:w-max h-[5vh] w-[20vw] rounded-lg bg-slate-100  text-center outline-none hover:bg-slate-200 focus:bg-slate-200"
               type="password"
               {...register("password", {
                 required: true,

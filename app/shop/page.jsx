@@ -19,8 +19,8 @@ const Shop = () => {
   }, []);
   return (
     <>
-      <div className="flex h-[100vh]  bg-slate-100 ">
-        <div className="mx-5 my-5 flex flex-wrap gap-5 ">
+      <div className="flex h-[100vh]   bg-slate-100 ">
+        <div className="mx-5 my-5  md:flex md:flex-col md:flex-grow md:flex-nowrap flex flex-wrap gap-5 ">
           {products.map((e) => {
             return (
               <Link href={`/shop/${e.id}`} className=" flex flex-grow" key={e.id}>

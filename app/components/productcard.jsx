@@ -28,7 +28,7 @@ const ProductCard = ({ title, thumb, price }) => {
     <>
       <div className="flex h-[45vh]  w-[20vw] flex-grow flex-col gap-5 rounded-[0.7rem] border-[1px] border-gray-200 bg-white shadow-md">
         <div
-          className=" h-[30vh] rounded-[0.5rem] bg-gray-200 bg-cover bg-center bg-no-repeat"
+          className=" h-[30vh] rounded-[0.5rem] bg-gray-200      bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${thumb})` }}
         ></div>
         <h1 className="mx-2 text-lg  ">{title}</h1>

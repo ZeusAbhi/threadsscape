@@ -13,7 +13,7 @@ import { Navigation, Pagination, Autoplay } from "swiper";
 
 const Sliderhome = () => {
   return (
-    <div className="h-[50vh] w-[32vw]">
+    <div className=" xl:h-[70vh] xl:w-[100vw] h-[50vh] w-[32vw]">
       <Swiper
         pagination={true}
         modules={[Navigation, Pagination, Autoplay]}
@@ -30,21 +30,21 @@ const Sliderhome = () => {
         <SwiperSlide>
           <a
             href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
-            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_1.png')" }}
           ></a>
         </SwiperSlide>
         <SwiperSlide>
           <a
             href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
-            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_2.png')" }}
           ></a>
         </SwiperSlide>
         <SwiperSlide>
           <a
             href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
-            className="block h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
+            className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_3.png')" }}
           ></a>
         </SwiperSlide>

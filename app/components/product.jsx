@@ -30,12 +30,12 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
   }, [price]);
 
   return (
-    <div className="flex justify-center gap-10  ">
+    <div className=" xl:flex-col xl:items-center xl:justify-center flex justify-center gap-10  ">
       <div
-        className="h-[90vh] w-[40vw]  bg-gray-200 bg-cover bg-center bg-no-repeat"
+        className=" xl:w-[100vw] h-[90vh] w-[40vw]  bg-gray-200 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${thumb})` }}
       ></div>
-      <div className="my-4 flex  w-[40vw] flex-col gap-4">
+      <div className=" xl:w-[90vw] my-4 flex  w-[40vw] flex-col gap-4">
         <h1 className="text-2xl text-black">{title}</h1>
         <h5 className="text-sm text-black">{desc}</h5>
         <h6 className="text-sm text-black ">

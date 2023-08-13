@@ -31,9 +31,7 @@ const Checkout = () => {
     };
     getCart();
   }, [Cart, []]);
-  useEffect(() => {
-    console.log(isRadioButtonClicked);
-  }, [isRadioButtonClicked]);
+
   useEffect(() => {
     const convertToINR = async () => {
       try {
@@ -56,7 +54,7 @@ const Checkout = () => {
   } = useForm();
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:5000/users/savedetails", {
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/savedetails`, {
         email: data.email,
         phone: data.phone,
         address: data.address,
@@ -66,7 +64,7 @@ const Checkout = () => {
   };
   useEffect(() => {
     const getData = async () => {
-      const detail = await axios.get("http://localhost:5000/users/getdetails");
+      const detail = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/getdetails`);
       setDetails(detail.data);
     };
     getData();
@@ -83,7 +81,7 @@ const Checkout = () => {
     const cartID = cartobject !== null ? cartobject.cartID : null;
 
     axios
-      .post("http://localhost:5000/create-checkout-session", {
+      .post(`${process.env.NEXT_PUBLIC_BACKEND_URI}/create-checkout-session`, {
         cart,
         exchangeRate,
       })
@@ -95,6 +93,7 @@ const Checkout = () => {
         }
       })
       .then(({ url }) => {
+        
         window.location = url;
       })
       .catch((error) => {
@@ -103,9 +102,9 @@ const Checkout = () => {
   };
   return (
     <>
-      <div className="flex h-[100vh] justify-center  bg-[#F9FAFB] ">
-        <div className="flex gap-10">
-          <div className="my-5 flex h-[78vh] w-[55vw] flex-col items-center gap-5 rounded-md bg-white">
+      <div className="flex min-h-screen justify-center  bg-[#F9FAFB] ">
+        <div className="xl:flex-col  flex  gap-10">
+          <div className="my-5 flex xl:w-[80vw] h-[78vh] w-[55vw] flex-col items-center gap-5 rounded-md bg-white">
             <h3 className="my-2 text-lg">Shipping Address</h3>
             <form
               className="flex flex-col  gap-8 text-sm"
@@ -113,7 +112,7 @@ const Checkout = () => {
             >
               <div className="flex flex-col gap-4">
                 <input
-                  className="  small-placeholder h-[5vh]    w-[50vw] border-2 border-[#e5e7eb] outline-none"
+                  className="  small-placeholder h-[5vh] xl:w-[70vw]    w-[50vw] border-2 border-[#e5e7eb] outline-none"
                   type="email"
                   placeholder="Email"
                   {...register("email", {
@@ -135,7 +134,7 @@ const Checkout = () => {
               <div className="flex gap-[1vw]">
                 <div className="flex flex-col gap-4">
                   <input
-                    className="small-placeholder h-[5vh] w-[26vw] border-2 border-gray-200 outline-none"
+                    className="small-placeholder xl:w-[35vw] h-[5vh] w-[26vw] border-2 border-gray-200 outline-none"
                     type="text"
                     placeholder="First name"
                     {...register("firstname", {
@@ -161,7 +160,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                   <input
-                    className="small-placeholder h-[5vh] w-[23vw] border-2 border-gray-200 outline-none"
+                    className="small-placeholder xl:w-[33vw] h-[5vh] w-[23vw] border-2 border-gray-200 outline-none"
                     type="text"
                     placeholder="Last name"
                     {...register("lastname", {
@@ -188,7 +187,7 @@ const Checkout = () => {
               </div>
               <div className="flex flex-col gap-4">
                 <textarea
-                  className="small-placeholder h-[10vh] w-[50vw] resize-none border-2 border-gray-200 outline-none"
+                  className="small-placeholder xl:w-[70vw] h-[10vh] w-[50vw] resize-none border-2 border-gray-200 outline-none"
                   type="text"
                   placeholder="Address"
                   {...register("address", {
@@ -215,7 +214,7 @@ const Checkout = () => {
               <div className="flex gap-[1vw]">
                 <div className="flex flex-col gap-4">
                   <input
-                    className="small-placeholder h-[5vh] w-[26vw] border-2 border-gray-200 outline-none"
+                    className="small-placeholder xl:w-[34vw] h-[5vh] w-[26vw] border-2 border-gray-200 outline-none"
                     type="text"
                     placeholder="City"
                     {...register("city", {
@@ -241,7 +240,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex flex-col gap-4">
                   <input
-                    className="small-placeholder h-[5vh] w-[23vw] border-2 border-gray-200 outline-none"
+                    className="small-placeholder xl:w-[35vw] h-[5vh] w-[23vw] border-2 border-gray-200 outline-none"
                     type="text"
                     placeholder="State"
                     {...register("state", {
@@ -268,7 +267,7 @@ const Checkout = () => {
               </div>
               <div className="flex flex-col gap-5">
                 <input
-                  className="small-placeholder h-[5vh] w-[50vw] border-2 border-gray-200 outline-none"
+                  className="small-placeholder xl:w-[70vw] h-[5vh] w-[50vw] border-2 border-gray-200 outline-none"
                   type="number"
                   placeholder="Phone"
                   {...register("phone", {
@@ -302,9 +301,9 @@ const Checkout = () => {
             </form>
           </div>
           <div className="flex flex-col ">
-            <div className=" my-5 h-[35vh] w-[28vw] overflow-y-auto rounded-md bg-white">
+            <div className=" my-5 h-[35vh] xl:w-[80vw] w-[28vw] overflow-y-auto rounded-md bg-white">
               <h1 className=" py-3 text-center text-xl">Saved Address</h1>
-              <div className="my-5 flex w-[15vw] flex-col  gap-1">
+              <div className="my-5 flex md:w-[60vw] xl:w-[40vw] w-[15vw] flex-col  gap-1">
                 <RadioGroup.Root
                   className="flex flex-col gap-2.5"
                   onValueChange={() => setIsRadioButtonClicked(true)}
@@ -332,13 +331,13 @@ const Checkout = () => {
                 </RadioGroup.Root>
               </div>
             </div>
-            <div className="my-2 flex h-[40vh]  w-[28vw]  gap-[10vw]  rounded-md bg-white px-5 py-5">
-              <div className="flex w-[10vw] flex-col gap-5">
+            <div className="my-5 flex h-[40vh]  xl:w-[80vw] xl:justify-center w-[28vw]  gap-[10vw]  rounded-md bg-white px-5 py-5">
+              <div className="flex xl:w-[45vw] w-[10vw] flex-col gap-5">
                 <h1>Subtotal</h1>
                 <h4>Shipping</h4>
                 <h4>Taxes</h4>
                 <Separator.Root
-                  className=" bg-black data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-[25vw] data-[orientation=vertical]:w-px"
+                  className=" bg-black data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:xl:w-[70vw] w-[25vw] data-[orientation=vertical]:w-px"
                   decorative
                   orientation="horizontal"
                 />
@@ -347,7 +346,7 @@ const Checkout = () => {
                 <button
                   onClick={handlePayment}
                   disabled={!isRadioButtonClicked} // Disable the button when isRadioButtonClicked is false
-                  className={`flex h-10 w-[25vw] items-center justify-center border-[1.5px] ${
+                  className={`flex h-10  w-[25vw] items-center justify-center border-[1.5px] ${
                     isRadioButtonClicked
                       ? "border-black bg-black text-white"
                       : "border-gray-100 cursor-not-allowed bg-gray-200 text-black"
@@ -360,7 +359,7 @@ const Checkout = () => {
                   Checkout
                 </button>
               </div>
-              <div className="flex w-[10vw] flex-col gap-5">
+              <div className="flex xl:w-[20vw] w-[10vw]  flex-col gap-5">
                 <h1>
                   ₹{(parseFloat(cart.subtotal / 100) * exchangeRate).toFixed(2)}
                 </h1>
