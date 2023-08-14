@@ -4,14 +4,13 @@ import { medusaClient } from "../utils/client";
 import ProductCard from "../components/productcard";
 import Link from "next/link";
 
-
-
 const Shop = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
       const results = await medusaClient.products.list();
+      console.log(results);
       setProducts(results.products);
     };
 
@@ -20,10 +19,14 @@ const Shop = () => {
   return (
     <>
       <div className="flex h-[100vh]   bg-slate-100 ">
-        <div className="mx-5 my-5  md:flex md:flex-col md:flex-grow md:flex-nowrap flex flex-wrap gap-5 ">
+        <div className="mx-5 my-5  flex flex-wrap gap-5 md:flex md:flex-grow md:flex-col md:flex-nowrap ">
           {products.map((e) => {
             return (
-              <Link href={`/shop/${e.id}`} className=" flex flex-grow" key={e.id}>
+              <Link
+                href={`/shop/${e.id}`}
+                className=" flex flex-grow"
+                key={e.id}
+              >
                 <ProductCard
                   key={e.title}
                   title={e.title}

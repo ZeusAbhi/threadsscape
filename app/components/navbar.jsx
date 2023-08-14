@@ -25,10 +25,12 @@ const validatetoken = async (user, cb) => {
       cb(true);
     } else {
       cb(false);
+      
     }
   } catch (error) {
     console.error(error)
     cb(false);
+    
   }
 };
 
@@ -44,6 +46,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("User");
     setIsLoggedIn(false);
+    
   };
 
   useEffect(() => {

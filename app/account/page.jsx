@@ -7,7 +7,11 @@ const Account = () => {
     const[order,setOrder]=useState([])
     useEffect(()=>{
          const getOrder=async ()=>{
-            const data= await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/getorder`)
+          const user = JSON.parse(localStorage.getItem("User"));
+        const userID = user.id;
+            const data= await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/getorder`,{
+              id:userID
+            })
              
             console.log("data from backend",data);
             setOrderData(data.data)

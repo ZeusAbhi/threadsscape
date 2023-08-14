@@ -58,16 +58,17 @@ const PaymentSuccess = () => {
   useEffect(() => {
     const updateCartAndSendRequest = async () => {
       try {
+        const user = JSON.parse(localStorage.getItem("User"));
+        const userID = user.id;
         const response = await axios.post(
           `${process.env.NEXT_PUBLIC_BACKEND_URI}/users/orders`,
           {
             order: cart.items,
+            id:userID
           }
         );
         console.log("Order successfully sent to backend:", response.data);
         
-        const user = JSON.parse(localStorage.getItem("User"));
-        const userID = user.id;
         localStorage.removeItem(userID);
         localStorage.removeItem("cartCount");
         window.location.href = "/home";
