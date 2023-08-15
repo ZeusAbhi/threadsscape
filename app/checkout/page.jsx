@@ -192,11 +192,6 @@ const Checkout = () => {
                   placeholder="Address"
                   {...register("address", {
                     required: true,
-                    pattern: {
-                      value: /^(?!\s)(?!.*\s$)[^\s]+$/, // Prevent spaces at the beginning and end
-                      message:
-                        "Spaces are not allowed at the beginning or end.",
-                    },
                     minLength: 3,
                     maxLength: 80,
                   })}
@@ -207,7 +202,7 @@ const Checkout = () => {
                       ? "Your Address is less than 3 characters"
                       : errors.address.type === "required"
                       ? "This field is required"
-                      : "Spaces are not allowed"}
+                      : ""}
                   </p>
                 )}
               </div>
@@ -312,7 +307,7 @@ const Checkout = () => {
                   {details.length > 0 &&
                     details.map((e, index) => {
                       return (
-                        <div className="mx-4 flex gap-3 " id={index}>
+                        <div className="mx-4 flex gap-3 w-max " id={index}>
                           <RadioGroup.Item
                             className="h-[25px] w-[25px] cursor-default rounded-full bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-violet3 focus:shadow-[0_0_0_2px] focus:shadow-black"
                             value={index}
