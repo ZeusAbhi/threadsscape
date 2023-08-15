@@ -29,21 +29,21 @@ const Sliderhome = () => {
       >
         <SwiperSlide>
           <a
-            href="/shop/prod_01H40HGA9DRVTRGMWVF1PJQ2TE"
+            href="https://threadsscape.vercel.app/shop/prod_01H40HGA9DRVTRGMWVF1PJQ2TE"
             className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_1.png')" }}
           ></a>
         </SwiperSlide>
         <SwiperSlide>
           <a
-            href="/shop/prod_01H40HG9ZMR7E9NCXJBDV3QY2E"
+            href="https://threadsscape.vercel.app/shop/prod_01H40HG9ZMR7E9NCXJBDV3QY2E"
             className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_2.png')" }}
           ></a>
         </SwiperSlide>
         <SwiperSlide>
           <a
-            href="/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
+            href="https://threadsscape.vercel.app/shop/prod_01H40HGA5P9X6HRQEESBC662KY"
             className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('medusa_3.png')" }}
           ></a>
