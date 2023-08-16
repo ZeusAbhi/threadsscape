@@ -42,7 +42,7 @@ const Signup = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="flex h-[80vh]"
       >
-          <div className="flex xl:w-max w-[30vw] overflow-y-auto  flex-col  mx-5   gap-6 ">
+          <div className="flex xl:w-max w-[30vw] xl:overflow-y-scroll overflow-y-auto  flex-col  mx-5   gap-6 ">
             <h1 className="my-4 break-normal text-4xl font-bold text-black">
               Sign Up <br></br>to Threadscape
             </h1>
