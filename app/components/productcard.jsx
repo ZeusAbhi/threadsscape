@@ -30,7 +30,7 @@ const ProductCard = ({ title, thumb, price }) => {
         <div
           className=" h-[30vh] rounded-[0.5rem] bg-gray-200      bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: thumb && thumb.includes('localhost') ? "url('https://threadsscape.vercel.app/white2.avif')" : `url(${thumb})`
+            backgroundImage: thumb && thumb.includes('localhost') ? "url('https://threadsscape.vercel.app/white2.png')" : `url(${thumb})`
           }}
         ></div>
         <h1 className="mx-2 text-lg  ">{title}</h1>
