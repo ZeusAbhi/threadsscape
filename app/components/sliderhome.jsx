@@ -25,7 +25,7 @@ const Sliderhome = () => {
         loop={true}
         className="mySwiper"
       >
-        <SwiperSlide>
+         <SwiperSlide>
           <Link href="https://threadsscape.vercel.app/shop/prod_01H40HGA9DRVTRGMWVF1PJQ2TE">
             <div
               className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
