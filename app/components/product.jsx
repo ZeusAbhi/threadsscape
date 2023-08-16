@@ -34,7 +34,7 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
       <div
         className=" xl:w-[100vw] h-[90vh] w-[40vw]  bg-gray-200 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: thumb && thumb.includes('localhost') ? "url('uspolo.png')" : `url(${thumb})`
+          backgroundImage: thumb && thumb.includes('localhost') ? "url('https://threadsscape.vercel.app/white.avif')" : `url(${thumb})`
         }}
       ></div>
       <div className=" xl:w-[90vw] my-4 flex  w-[40vw] flex-col gap-4">
