@@ -26,7 +26,7 @@ const Sliderhome = () => {
         className="mySwiper"
       >
          <SwiperSlide>
-          <Link href="https://threadsscape.vercel.app/shop/prod_01H40HGA9DRVTRGMWVF1PJQ2TE">
+          <Link href="https://threadsscape.vercel.app/shop/prod_01H7TRQYE8H0CET81QQAWP6DRV">
             <div
               className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: "url('medusa_1.png')" }}
@@ -34,7 +34,7 @@ const Sliderhome = () => {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="https://threadsscape.vercel.app/shop/prod_01H40HG9ZMR7E9NCXJBDV3QY2E">
+          <Link href="https://threadsscape.vercel.app/shop/prod_01H7TRRGD7NFCW9M2NEEYX7DZV">
             <div
               className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: "url('medusa_2.png')" }}
@@ -42,7 +42,7 @@ const Sliderhome = () => {
           </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <Link href="https://threadsscape.vercel.app/shop/prod_01H40HGA5P9X6HRQEESBC662KY">
+          <Link href="https://threadsscape.vercel.app/shop/prod_01H7TRPY7ZCN975RDKW6FSVRD2">
             <div
               className="block xl:h-[70vh] xl:w-[100vw] xl:bg-contain h-[50vh] w-[32vw] border-2 border-white bg-cover bg-center bg-no-repeat"
               style={{ backgroundImage: "url('medusa_3.png')" }}
