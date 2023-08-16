@@ -33,7 +33,7 @@ const Signup = () => {
   return (
     <>
      
-        <div className="flex w-[100vw] fixed gap-3 xl:overflow-y-auto overflow-y-hidden justify-center items-center">
+        <div className="flex w-[100vw] xl:relative fixed gap-3 xl:overflow-y-auto overflow-y-hidden justify-center items-center">
         <div
             className=" w-[70vw] h-[90vh]  bg-cover  bg-center"
             style={{ backgroundImage: "url('signup3.jpg')" }}
