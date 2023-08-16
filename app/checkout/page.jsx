@@ -62,13 +62,7 @@ const Checkout = () => {
       .then((res) => setDetails(res.data))
       .catch((e) => console.log("error", e));
   };
-  useEffect(() => {
-    const getData = async () => {
-      const detail = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URI}/users/getdetails`);
-      setDetails(detail.data);
-    };
-    getData();
-  }, []);
+  
   const handlePayment = () => {
     const item =
       cart?.items?.map((e) => ({
