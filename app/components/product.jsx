@@ -33,7 +33,7 @@ const Product = ({ title, thumb, desc, weight, price, variants }) => {
     <div className=" xl:flex-col xl:items-center xl:justify-center flex justify-center gap-10  ">
       <div
         className=" xl:w-[100vw] h-[90vh] w-[40vw]  bg-gray-200 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${thumb})` }}
+        style={{  backgroundImage: thumb.includes('localhost') ? `url(./white.avif)` : `url(${thumb})` }}
       ></div>
       <div className=" xl:w-[90vw] my-4 flex  w-[40vw] flex-col gap-4">
         <h1 className="text-2xl text-black">{title}</h1>
