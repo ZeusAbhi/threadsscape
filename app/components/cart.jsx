@@ -54,7 +54,9 @@ const Cart = () => {
                   <div className="flex w-72   gap-5" key={e.variant_id}>
                     <div
                       className="h-[8rem] w-[8rem] bg-cover bg-center bg-no-repeat"
-                      style={{ backgroundImage: `url(${e.thumbnail})` }}
+                      style={{
+                        backgroundImage: e.thumbnail && e.thumbnail.includes('localhost') ? "url('https://threadsscape.vercel.app/white2.png')" : `url(${e.thumbnail})`
+                      }}
                     ></div>
                     <div className="flex flex-col gap-2">
                       <p className="text-[0.8rem] text-black">{e.title}</p>
