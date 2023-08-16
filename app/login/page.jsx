@@ -75,7 +75,7 @@ const Login = () => {
             )}
 
             <input
-              className="h-10 w-20  cursor-pointer rounded-md  bg-blue-600 text-white transition-all hover:bg-blue-700"
+              className="h-10 w-20  cursor-pointer rounded-md  bg-blue-500 text-white transition-all hover:bg-blue-700"
               type="submit"
               value="Login"
               {...register("submit")}
